@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.32-22" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="MOSTRAR" input="INGRESAR" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="Ana" created="2023-05-23" changedby="Ana" changed="2024-06-06" origin="Structorizer 3.32-11" text="&#34;EJERCICIO_47_CARTILLA_BÚSQUEDA_DICOTÓMICA&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;TOT&#60;-0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<for text="&#34;for I &#60;- 0 to 12&#34;" comment="" counterVar="I" startValue="0" endValue="12" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;P[I]&#60;-I+1&#34;,&#34;T[I]&#60;-0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+		<instruction text="&#34;INGRESAR R&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<while text="&#34;while R=&#34;&#34;S&#34;&#34;&#34;" comment="" color="ffffff" disabled="0">
+			<qWhile>
+				<instruction text="&#34;INGRESAR PART&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;POS&#60;-(-1)&#34;,&#34;D&#60;-0&#34;,&#34;H&#60;-12&#34;,&#34;ME&#60;-(D+H)/2&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<while text="&#34;while D&#60;=H AND POS=(-1)&#34;" comment="" color="ffffff" disabled="0">
+					<qWhile>
+						<alternative text="&#34;P[ME]=PART&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;POS&#60;-ME&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<alternative text="&#34;P[ME]&#62;PART&#34;" comment="" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;H&#60;-ME-1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="&#34;D&#60;-ME+1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qFalse>
+								</alternative>
+								<instruction text="&#34;ME&#60;-(D+H)/2&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qWhile>
+				</while>
+				<alternative text="&#34;POS&#60;&#62;(-1)&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;T[POS]&#60;-T[POS]+1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+						<instruction text="&#34;TOT&#60;-TOT+1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse color="ffffff">
+					</qFalse>
+				</alternative>
+				<instruction text="&#34;INGRESAR R&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qWhile>
+		</while>
+		<for text="&#34;for I &#60;- 0 to 11&#34;" comment="" counterVar="I" startValue="0" endValue="11" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<for text="&#34;for J &#60;- I+1 to 12&#34;" comment="" counterVar="J" startValue="I+1" endValue="12" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+					<qFor>
+						<alternative text="&#34;T[I]&#60;T[J]&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;AUX&#60;-T[I]&#34;,&#34;T[I]&#60;-T[J]&#34;,&#34;T[J]&#60;-AUX&#34;,&#34;AUX&#60;-P[I]&#34;,&#34;P[I]&#60;-P[J]&#34;,&#34;P[J]&#60;-AUX&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+					</qFor>
+				</for>
+			</qFor>
+		</for>
+		<for text="&#34;for I &#60;- 0 to 4&#34;" comment="" counterVar="I" startValue="0" endValue="4" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;MOSTRAR P[I],T[I]/TOT&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+	</children>
+</root>

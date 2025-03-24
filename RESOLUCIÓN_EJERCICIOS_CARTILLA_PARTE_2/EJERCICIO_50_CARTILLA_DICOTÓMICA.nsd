@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.32-17" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="MOSTRAR" input="INGRESAR" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" namespace="" author="Ana" created="2023-05-24" changedby="Ana" changed="2024-04-19" origin="Structorizer 3.32-11" text="&#34;EJERCICIO_50_CARTILLA_DICOTÓMICA&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<for text="&#34;for I &#60;- 0 to 9&#34;" comment="" counterVar="I" startValue="0" endValue="9" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;DES[I]&#60;-I+1&#34;,&#34;R[I]&#60;-0&#34;,&#34;NR[I]&#60;-0&#34;,&#34;POR[I]&#60;-0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+		<instruction text="&#34;INGRESAR R&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<while text="&#34;while R=&#34;&#34;S&#34;&#34;&#34;" comment="" color="ffffff" disabled="0">
+			<qWhile>
+				<instruction text="&#34;INGRESAR COD,HC,EST&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;POS&#60;-(-1)&#34;,&#34;D&#60;-0&#34;,&#34;H&#60;-9&#34;,&#34;ME&#60;-(D+H)/2&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<while text="&#34;while D&#60;=H AND POS=(-1)&#34;" comment="" color="ffffff" disabled="0">
+					<qWhile>
+						<alternative text="&#34;DES[ME]=COD&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<alternative text="&#34;EST=&#34;&#34;RECUPERADO&#34;&#34;&#34;" comment="" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;R[ME]&#60;-R[ME]+1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="&#34;NR[ME]&#60;-NR[ME]+1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qFalse>
+								</alternative>
+								<instruction text="&#34;POS&#60;-ME&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<alternative text="&#34;DES[ME]&#62;COD&#34;" comment="" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;H&#60;-ME-1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="&#34;D&#60;-ME+1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qFalse>
+								</alternative>
+								<instruction text="&#34;ME&#60;-(D+H)/2&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qWhile>
+				</while>
+				<instruction text="&#34;INGRESAR R&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qWhile>
+		</while>
+		<for text="&#34;for I &#60;- 0 to 9&#34;" comment="" counterVar="I" startValue="0" endValue="9" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;POR[I]&#60;-R[I]/(R[I]+NR[I])&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+		<for text="&#34;for I &#60;- 0 to 8&#34;" comment="" counterVar="I" startValue="0" endValue="8" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<for text="&#34;for J &#60;- I+1 to 9&#34;" comment="" counterVar="J" startValue="I+1" endValue="9" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+					<qFor>
+						<alternative text="&#34;POR[I]&#60;POR[J]&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;AUX&#60;-DES[I]&#34;,&#34;DES[I]&#60;-DES[J]&#34;,&#34;DES[J]&#60;-AUX&#34;,&#34;AUX&#60;-R[I]&#34;,&#34;R[I]&#60;-R[J]&#34;,&#34;R[J]&#60;-AUX&#34;,&#34;AUX&#60;-NR[I]&#34;,&#34;NR[I]&#60;-NR[J]&#34;,&#34;NR[J]&#60;-AUX&#34;,&#34;AUX&#60;-POR[I]&#34;,&#34;POR[I]&#60;-POR[J]&#34;,&#34;POR[J]&#60;-AUX&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+					</qFor>
+				</for>
+			</qFor>
+		</for>
+		<for text="&#34;for K &#60;- 0 to 9&#34;" comment="" counterVar="K" startValue="0" endValue="9" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;MOSTRAR DES[K],POR[K]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+	</children>
+</root>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.32-17" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="MOSTRAR" input="INGRESAR" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" namespace="" author="Ana" created="2023-05-24" changedby="Ana" changed="2024-04-19" origin="Structorizer 3.32-11" text="&#34;EJERCICIO_55_CARTILLA&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<for text="&#34;for I &#60;- 0 to 2999&#34;" comment="" counterVar="I" startValue="0" endValue="2999" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;INGRESAR COD[I],CANT[I],PP[I],PU[I]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+		<for text="&#34;for I &#60;- 0 to 2998&#34;" comment="" counterVar="I" startValue="0" endValue="2998" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<for text="&#34;for J &#60;- I+1 to 2999&#34;" comment="" counterVar="J" startValue="I+1" endValue="2999" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+					<qFor>
+						<alternative text="&#34;COD[I]&#62;COD[J]&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;AUX&#60;-COD[I]&#34;,&#34;COD[I]&#60;-COD[J]&#34;,&#34;COD[J]&#60;-AUX&#34;,&#34;AUX&#60;-CANT[I]&#34;,&#34;CANT[I]&#60;-CANT[J]&#34;,&#34;CANT[J]&#60;-AUX&#34;,&#34;AUX&#60;-PP[I]&#34;,&#34;PP[I]&#60;-PP[J]&#34;,&#34;PP[J]&#60;-AUX&#34;,&#34;AUX&#60;-PU[I]&#34;,&#34;PU[I]&#60;-PU[J]&#34;,&#34;PU[J]&#60;-AUX&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+					</qFor>
+				</for>
+			</qFor>
+		</for>
+		<instruction text="&#34;INGRESAR R&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<while text="&#34;while R=&#34;&#34;S&#34;&#34;&#34;" comment="" color="ffffff" disabled="0">
+			<qWhile>
+				<instruction text="&#34;INGRESAR CODIGO&#34;,&#34;DESDE&#60;-0&#34;,&#34;HASTA&#60;-2999&#34;,&#34;MEDIO&#60;-(DESDE+HASTA)/2&#34;,&#34;POS&#60;-(-1)&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<while text="&#34;while DESDE&#60;=HASTA AND POS=(-1)&#34;" comment="" color="ffffff" disabled="0">
+					<qWhile>
+						<alternative text="&#34;COD[MEDIO]=CODIGO&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;POS&#60;-MEDIO&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<alternative text="&#34;COD[MEDIO]&#62;CODIGO&#34;" comment="" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;HASTA&#60;-MEDIO-1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="&#34;DESDE&#60;-MEDIO+1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qFalse>
+								</alternative>
+								<instruction text="&#34;MEDIO&#60;-(DESDE+HASTA)/2&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qWhile>
+				</while>
+				<alternative text="&#34;POS&#60;&#62;(-1)&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;INGRESAR CANTIDAD&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+						<alternative text="&#34;CANT[POS]&#62;=CANTIDAD&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;CANT[POS]&#60;-CANT[POS]-CANTIDAD&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;IMPORTE&#60;-CANTIDAD*PU[POS]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;MOSTRAR IMPORTE&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;MOSTRAR &#34;&#34;NO HAY SUFICIENTE&#34;&#34;&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;MOSTRAR &#34;&#34;NO SE ENCUENTRA EL CÓDIGO&#34;&#34;&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qFalse>
+				</alternative>
+				<instruction text="&#34;INGRESAR R&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qWhile>
+		</while>
+		<for text="&#34;for I &#60;- 0 to 2999&#34;" comment="" counterVar="I" startValue="0" endValue="2999" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<alternative text="&#34;CANT[I]&#60;PP[I]&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;MOSTRAR &#34;&#34;HAY FALTANTE&#34;&#34;&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse color="ffffff">
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+	</children>
+</root>
