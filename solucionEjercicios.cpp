@@ -5,7 +5,7 @@ int main(){
 
 float numeroUno, numeroDos;
 int opcion;
-int password = 34634;
+int password = 3;
 
 
 //------------------------------------------------------------------------------------------------//
@@ -70,19 +70,27 @@ cout<<"\n\n\n";
 
 //------------------------------------------------------------------------------------------------//
 
+char estado = 'D';
 int intentos = 0;
+
+
 for(int i=0; i<3; i++){
     int ingreso;
-    cout<<"Ingrese el PIN: ";
-    cin>>ingreso;
-    if(ingreso == password){
-        cout<<"Inicio exitoso!"<<endl;
-        break;
-    }
-    else{
+    
+    if(estado == 'D'){
+        cout<<"Ingrese el PIN: ";
+        cin>>ingreso;
+        if(ingreso == password){
+            cout<<"Inicio exitoso!"<<endl;
+            estado = 'A';
+        }
+        
+        else{
+            cout<<"PIN incorrecto\n";
         intentos++;
     }
 
+    }
 
 }
 
