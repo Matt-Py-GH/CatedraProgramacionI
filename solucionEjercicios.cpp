@@ -76,7 +76,11 @@ int intentos = 0;
 
 for(int i=0; i<3; i++){
     int ingreso;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ad6f7cf0e1ba4f80ef24186f9ff5963d2cdda7bf
     if(estado == 'D'){
         cout<<"Ingrese el PIN: ";
         cin>>ingreso;
@@ -84,7 +88,11 @@ for(int i=0; i<3; i++){
             cout<<"Inicio exitoso!"<<endl;
             estado = 'A';
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> ad6f7cf0e1ba4f80ef24186f9ff5963d2cdda7bf
         else{
             cout<<"PIN incorrecto\n";
         intentos++;
